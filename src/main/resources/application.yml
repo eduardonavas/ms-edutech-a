@@ -1,0 +1,27 @@
+spring:
+  cloud:
+    openfeign:
+      client:
+        config:
+          default:
+            connectionTimeout: 5000
+            readTimeout: 20000
+            loggerLevel: headers
+
+  application:
+    name: ms-edutech-a
+  data:
+    mongodb:
+      uri: ${MONGO_URI:mongodb://localhost:27017/admin}
+
+logging:
+  level:
+    br.com.tlf.edutech.msedutecha.infrastructure.edutechmsb.rest.client.EdutechMsB: DEBUG
+
+server:
+  servlet:
+    context-path: /msEdutechA/v1
+
+api:
+  ms-edutech-b:
+    url: ${MS_EDUTECH_B_URL:http://localhost:8082/msEdutechB/v1}
